@@ -104,21 +104,26 @@ export default async function Home() {
 
     <footer>
       <div className="max-w-5xl w-full py-8 text-center">
-        <div className="flex flex-col items-center justify-center gap-4 mb-4">
+        <div className="flex flex-col items-center justify-center gap-4mb-4">
           <h1 className="text-2xl font-bold">Let's Connect</h1>
-          <div className="flex flex-row items-center gap-4">
+          <div className="flex flex-row items-center gap-8">
             <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
               GitHub
             </a>
             <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
               LinkedIn
             </a>
-            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-              Twitter
+            <a href="https://intagram.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+              Instagram
+            </a>
+            <a href="https://gmail.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+              Email
             </a>
           </div>
         </div>
-        &copy; {new Date().getFullYear()} A's Portofolio. All rights reserved.
+        <div className="text-slate-500 text-sm mt-16">
+          &copy; {new Date().getFullYear()} A's Portofolio. All rights reserved.
+        </div>
       </div>
     </footer>
 
