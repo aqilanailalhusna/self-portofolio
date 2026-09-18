@@ -1,4 +1,6 @@
-// Tipe data spesifik untuk repositori GitHub
+import React from "react";
+import {skills, experiences} from "@/data/data";
+
 type Repository = {
   id: number;
   name: string;
@@ -9,125 +11,186 @@ type Repository = {
   fork: boolean;
 };
 
+// Fungsi Fetching Data GitHub API
 async function getGithubProjects(username: string): Promise<Repository[]> {
-  const res = await fetch(`https://api.github.com/users/aqilanailalhusna/repos?sort=updated&per_page=6`, {
-    next: { revalidate: 3600 } // Data di-cache & di-refresh otomatis setiap 1 jam
-  });
-
-  if (!res.ok) {
+  try {
+    const res = await fetch(`https://api.github.com/users/aqilanailalhusna/repos?sort=updated&per_page=10`, {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return [];
+    const repos: Repository[] = await res.json();
+    return repos.filter((repo) => !repo.fork);
+  } catch {
     return [];
   }
-
-  const repos: Repository[] = await res.json();
-  
-  return repos.filter((repo) => !repo.fork);
 }
 
 export default async function Home() {
-  const projects = await getGithubProjects('USERNAME_GITHUB_KAMU');
+  // Ganti dengan Username GitHub kamu
+  const projects = await getGithubProjects("aqilanailalhusna");
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center p-8">
-      <main className="min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center p-8">
-      <div className="mx-auto mt-5 max-w-5xl w-full flex items-center justify-center gap-6">
-        <h1 className="text-4xl md:text-6xl font-bold text-center">A's Portofolio</h1>
-      </div>
-
-      <div className="max-w-5xl w-full my-12 flex flex-col md:flex-row items-center justify-between gap-12">
-        <div className="flex-1 space-y-6 text-center md:text-left">
-          <p className="text-lg text-slate-300">
-            I am an undergraduate student from University. Interested in Data Science and Machine Learning.
-          </p>
-        </div>
-        <div className="flex-1 flex justify-center md:justify-end">
-          <img src="/profile.jpg" alt="Profile Picture" className="w-32 h-32 rounded-full object-cover border-2 border-slate-800" />
-        </div>
-      </div>
-
-      <div className="max-w-5xl w-full my-12 flex flex-col items-center justify-center gap-6">
-        <h1 className="text-2xl md:text-4xl font-bold text-center">Skills</h1>
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-4 w-full">
-          <div className="bg-slate-800 p-4 rounded-lg text-center">Python</div>
-          <div className="bg-slate-800 p-4 rounded-lg text-center">JavaScript</div>
-          <div className="bg-slate-800 p-4 rounded-lg text-center">SQL</div>
-          <div className="bg-slate-800 p-4 rounded-lg text-center">Machine Learning</div>
-          <div className="bg-slate-800 p-4 rounded-lg text-center">Data Analysis</div>
-          <div className="bg-slate-800 p-4 rounded-lg text-center">Excel</div>
-          <div className="bg-slate-800 p-4 rounded-lg text-center">C</div>
-        </div>
-      </div>
-
-      <div className="max-w-5xl w-full my-12 flex flex-col items-center justify-center gap-6">
-        <h1 className="text-2xl md:text-4xl font-bold text-center">Projects</h1>
+    <div className="bg-slate-950 text-white min-h-screen flex flex-col font-sans">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-12 space-y-24">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-          {projects.length > 0 ? (
-            projects.map((project) => (
-              <div 
-                key={project.id} 
-                className="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition flex flex-col justify-between"
-              >
-                <div>
-                  <h2 className="text-xl font-bold text-blue-400 capitalize">
-                    {project.name.replace(/-/g, ' ')}
-                  </h2>
-                  <p className="text-slate-400 text-sm mt-2 line-clamp-3">
-                    {project.description || 'Tidak ada deskripsi pada repositori ini.'}
-                  </p>
-                </div>
+        {/* 1. INTRODUCTION SECTION */}
+        <section className="flex flex-col md:flex-row items-center justify-between gap-12 pt-8">
+          <div className="flex-1 space-y-4 text-center md:text-left">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+              Hello, I'm <span className="text-red-500">A</span>
+            </h1>
+            <p className="text-slate-300 text-lg leading-relaxed max-w-md">
+              I am an undergraduate Computer Science student interested in Machine Learning, Data Analytics, and Web Development.
+            </p>
+          </div>
+          <div className="flex-1 flex justify-center md:justify-end">
+            <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl relative">
+              <img
+                src="/profile.jpg"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
 
-                <div className="mt-6 flex items-center justify-between text-xs text-slate-500">
-                  <span className="px-3 py-1 bg-slate-800 rounded-md font-medium text-slate-300">
-                    {project.language || 'Code'}
-                  </span>
-                  
-                  <div className="flex items-center gap-4">
-                    <span>⭐ {project.stargazers_count}</span>
-                    <a 
-                      href={project.html_url} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-blue-500 hover:underline font-medium"
+        {/* 2. SKILLS SECTION (Translucent Slider Card) */}
+        <section className="space-y-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-center">Skills</h2>
+          <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-slate-800">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-36 h-40 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex flex-col items-center justify-center gap-3 hover:bg-white/10 transition duration-300"
+              >
+                <img src={skill.icon} alt={skill.name} className="w-12 h-12 object-contain" />
+                <span className="text-sm font-medium text-slate-200">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 3. PROJECTS SECTION (GitHub API) */}
+        <section className="space-y-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-center">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.length > 0 ? (
+              projects.map((project) => (
+                <div
+                  key={project.id}
+                  className="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl hover:border-slate-700 transition flex flex-col justify-between"
+                >
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold text-red-400 capitalize">
+                      {project.name.replace(/-/g, " ")}
+                    </h3>
+                    <p className="text-slate-400 text-sm line-clamp-3">
+                      {project.description || "No description provided for this repository."}
+                    </p>
+                  </div>
+                  <div className="mt-6 flex items-center justify-between text-xs pt-4 border-t border-slate-800/50">
+                    <span className="px-3 py-1 bg-slate-800 rounded-md font-medium text-slate-300">
+                      {project.language || "Code"}
+                    </span>
+                    <a
+                      href={project.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white rounded-lg font-medium transition"
                     >
-                      Lihat Repo ↗
+                      Repository ↗
                     </a>
                   </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-slate-500 col-span-2 text-center">Gagal memuat repositori atau repositori tidak ditemukan.</p>
-          )}
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <div className="max-w-5xl w-full py-8 text-center">
-        <div className="flex flex-col items-center justify-center gap-4mb-4">
-          <h1 className="text-2xl font-bold">Let's Connect</h1>
-          <div className="flex flex-row items-center gap-8">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-              GitHub
-            </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-              LinkedIn
-            </a>
-            <a href="https://intagram.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-              Instagram
-            </a>
-            <a href="https://gmail.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-              Email
-            </a>
+              ))
+            ) : (
+              <p className="text-slate-500 col-span-2 text-center">Loading repositories or user not found...</p>
+            )}
           </div>
-        </div>
-        <div className="text-slate-500 text-sm mt-16">
-          &copy; {new Date().getFullYear()} A's Portofolio. All rights reserved.
-        </div>
-      </div>
-    </footer>
+        </section>
 
+        {/* 4. EXPERIENCES SECTION (Polaroid Card with Hover Image Swap) */}
+        <section className="space-y-8 relative">
+          <h2 className="text-2xl md:text-3xl font-bold text-center">Experiences</h2>
+          
+          {/* Garis Gantung Dekoratif */}
+          <div className="absolute top-12 left-0 right-0 h-[1px] bg-slate-800 -z-10 hidden md:block"></div>
+
+          <div className="flex flex-wrap justify-center gap-12 pt-4">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className={`group w-72 bg-slate-200 text-slate-900 p-4 rounded-sm shadow-2xl transition duration-300 transform hover:scale-105 ${exp.rotate}`}
+              >
+                {/* Kontainer Gambar Polaroid dengan Efek Slide/Swap */}
+                <div className="relative w-full h-48 overflow-hidden bg-slate-300 mb-4">
+                  <img
+                    src={exp.img1}
+                    alt={exp.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:-translate-x-full"
+                  />
+                  <img
+                    src={exp.img2}
+                    alt={`${exp.title} hover`}
+                    className="absolute inset-0 w-full h-full object-cover translate-x-full transition-transform duration-500 group-hover:translate-x-0"
+                  />
+                </div>
+                
+                {/* Keterangan Polaroid */}
+                <div className="space-y-1">
+                  <div className="flex justify-between items-baseline">
+                    <h3 className="font-bold text-lg leading-tight">{exp.title}</h3>
+                    <span className="text-xs font-semibold text-slate-600">{exp.year}</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-snug">{exp.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+      </main>
+
+      {/* 5. CONTACT / FOOTER SECTION */}
+      <footer className="w-full bg-red-900/80 border-t border-red-800 py-12 px-6 mt-12 text-center space-y-6">
+        <h2 className="text-3xl font-bold tracking-tight text-white">Let's Connect</h2>
+        <div className="flex justify-center items-center gap-6 text-sm font-medium">
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline text-slate-200 hover:text-white"
+          >
+            LinkedIn
+          </a>
+          <span>•</span>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline text-slate-200 hover:text-white"
+          >
+            GitHub
+          </a>
+          <span>•</span>
+          <a
+            href="mailto:example@gmail.com"
+            className="hover:underline text-slate-200 hover:text-white"
+          >
+            Email
+          </a>
+          <span>•</span>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline text-slate-200 hover:text-white"
+          >
+            Instagram
+          </a>
+        </div>
+        <p className="text-xs text-red-200/60 pt-4">© 2026 A's Portfolio. Built with Next.js & Tailwind CSS.</p>
+      </footer>
     </div>
-    
   );
 }
