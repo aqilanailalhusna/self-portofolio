@@ -12,7 +12,6 @@ type Repository = {
   fork: boolean;
 };
 
-// Fungsi Fetching Data GitHub API
 async function getGithubProjects(username: string): Promise<Repository[]> {
   try {
     const res = await fetch(`https://api.github.com/users/aqilanailalhusna/repos?sort=updated&per_page=10`, {
@@ -27,18 +26,16 @@ async function getGithubProjects(username: string): Promise<Repository[]> {
 }
 
 export default async function Home() {
-  // Ganti dengan Username GitHub kamu
   const projects = await getGithubProjects("aqilanailalhusna");
 
   return (
     <div className="bg-slate-950 text-white min-h-screen flex flex-col font-sans">
       <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-12 space-y-24">
         
-        {/* 1. INTRODUCTION SECTION */}
         <section className="flex flex-col md:flex-row items-center justify-between gap-12 pt-8">
           <div className="flex-1 space-y-4 text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              Hello, I'm <span className="text-red-500">A</span>
+              Hello, I'm Aqila Nailal Husna
             </h1>
             <p className="text-slate-300 text-lg leading-relaxed max-w-md">
               I am an undergraduate Computer Science student interested in Machine Learning, Data Analytics, and Web Development.
@@ -55,15 +52,13 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* 2. SKILLS SECTION (Translucent Slider Card) */}
         <section className="space-y-6">
         <h2 className="text-2xl md:text-3xl font-bold text-center">Skills</h2>
-        <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm">
+        <div className= "my-8">
           <SkillGlobe />
         </div>
-      </section>
+        </section>
 
-        {/* 3. PROJECTS SECTION (GitHub API) */}
         <section className="space-y-6">
           <h2 className="text-2xl md:text-3xl font-bold text-center">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

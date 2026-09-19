@@ -8,7 +8,7 @@ const iconSlugs = [
   "c",
   "javascript",
   "typescript",
-  "react",
+  "mysql",
   "nextdotjs",
   "tailwindcss",
   "html5",
@@ -28,7 +28,7 @@ export default function SkillGlobe() {
       const renderedIcons = Object.values(data.simpleIcons).map((icon) =>
         renderSimpleIcon({
           icon,
-          size: 42,
+          size: 28,
           aProps: {
             href: undefined,
             target: undefined,
@@ -42,28 +42,35 @@ export default function SkillGlobe() {
   }, []);
 
   const cloudProps: Omit<ICloud, "children"> = {
+    canvasProps: {
+      style: {
+        width: 300,
+        height: 300,
+      },
+    },
     containerProps: {
       style: {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        paddingTop: 10,
+        paddingTop: 8,
       },
     },
     options: {
       reverse: true,
       depth: 1,
       wheelZoom: false,
-      imageScale: 2,
-      activeCursor: "default",
+      imageScale: 3,
+      activeCursor: "grab",
+      dragControl: true,
       tooltip: "native",
       initial: [0.1, -0.1],
       clickToFront: 500,
       tooltipDelay: 0,
       outlineColour: "#0000",
-      maxSpeed: 0.02,
-      minSpeed: 0.00,
+      maxSpeed: 0.002,
+      minSpeed: 0,
     },
   };
 
@@ -72,7 +79,7 @@ export default function SkillGlobe() {
       {icons ? (
         <Cloud {...cloudProps}>{icons}</Cloud>
       ) : (
-        <div className="text-slate-500 text-sm animate-pulse">Memuat Skill Globe...</div>
+        <div className="text-slate-500 text-sm animate-pulse"></div>
       )}
     </div>
   );
