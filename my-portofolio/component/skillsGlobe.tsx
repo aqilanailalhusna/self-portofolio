@@ -5,6 +5,7 @@ import { Cloud, fetchSimpleIcons, renderSimpleIcon, ICloud } from "react-icon-cl
 
 const iconSlugs = [
   "python",
+  "c",
   "javascript",
   "typescript",
   "react",
@@ -13,13 +14,10 @@ const iconSlugs = [
   "html5",
   "css3",
   "postgresql",
-  "sqlite",
-  "git",
+  "sql",
   "github",
-  "amazonwebservices",
-  "scikitlearn",
-  "pandas",
-  "numpy",
+  "canva",
+  "figma"
 ];
 
 export default function SkillGlobe() {
@@ -64,8 +62,8 @@ export default function SkillGlobe() {
       clickToFront: 500,
       tooltipDelay: 0,
       outlineColour: "#0000",
-      maxSpeed: 0.04,
-      minSpeed: 0.02,
+      maxSpeed: 0.02,
+      minSpeed: 0.00,
     },
   };
 
