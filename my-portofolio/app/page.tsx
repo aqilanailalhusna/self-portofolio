@@ -1,5 +1,6 @@
 import React from "react";
 import {skills, experiences} from "@/data/data";
+import SkillGlobe from "@/component/skillsGlobe";
 
 type Repository = {
   id: number;
@@ -56,19 +57,11 @@ export default async function Home() {
 
         {/* 2. SKILLS SECTION (Translucent Slider Card) */}
         <section className="space-y-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-center">Skills</h2>
-          <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-slate-800">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-36 h-40 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex flex-col items-center justify-center gap-3 hover:bg-white/10 transition duration-300"
-              >
-                <img src={skill.icon} alt={skill.name} className="w-12 h-12 object-contain" />
-                <span className="text-sm font-medium text-slate-200">{skill.name}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+        <h2 className="text-2xl md:text-3xl font-bold text-center">Skills</h2>
+        <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm">
+          <SkillGlobe />
+        </div>
+      </section>
 
         {/* 3. PROJECTS SECTION (GitHub API) */}
         <section className="space-y-6">
