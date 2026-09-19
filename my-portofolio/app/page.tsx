@@ -77,16 +77,12 @@ export default async function Home() {
                     </p>
                   </div>
                   <div className="mt-6 flex items-center justify-between text-xs pt-4 border-t border-slate-800/50">
-                    <span className="px-3 py-1 bg-slate-800 rounded-md font-medium text-slate-300">
-                      {project.language || "Code"}
-                    </span>
                     <a
                       href={project.html_url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white rounded-lg font-medium transition"
-                    >
-                      Repository ↗
+                    > Github Repository
                     </a>
                   </div>
                 </div>
@@ -124,7 +120,6 @@ export default async function Home() {
                   />
                 </div>
                 
-                {/* Keterangan Polaroid */}
                 <div className="space-y-1">
                   <div className="flex justify-between items-baseline">
                     <h3 className="font-bold text-lg leading-tight">{exp.title}</h3>
@@ -139,7 +134,6 @@ export default async function Home() {
 
       </main>
 
-      {/* 5. CONTACT / FOOTER SECTION */}
       <footer className="w-full bg-red-900/80 border-t border-red-800 py-12 px-6 mt-12 text-center space-y-6">
         <h2 className="text-3xl font-bold tracking-tight text-white">Let's Connect</h2>
         <div className="flex justify-center items-center gap-6 text-sm font-medium">
