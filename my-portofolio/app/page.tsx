@@ -1,5 +1,5 @@
 import React from "react";
-import {skills, experiences} from "@/data/data";
+import {experiences} from "@/data/data";
 import SkillGlobe from "@/component/skillsGlobe";
 
 type Repository = {
@@ -54,46 +54,53 @@ export default async function Home() {
 
         <section className="space-y-6">
         <h2 className="text-2xl md:text-3xl font-bold text-center">Skills</h2>
-        <div className= "my-8">
-          <SkillGlobe />
+        <div className= "my-8 flex flex-row items-center justify-center gap-32">
+          <div>
+            <SkillGlobe />
+          </div>
+          <div className="text-center">
+            <p className="text-slate-300">Here are the skills I have applied to my projects</p>
+          </div>
         </div>
         </section>
 
-        <section className="space-y-6">
+        <section className="space-y-6 max-w-5xl w-full mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <h3 className="text-lg text-slate-400 text-center">Things I've Built and Co-Built</h3>
+          <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800">
             {projects.length > 0 ? (
               projects.map((project) => (
                 <div
                   key={project.id}
-                  className="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl hover:border-slate-700 transition flex flex-col justify-between"
+                  className="flex-shrink-0 w-[300px] md:w-[380px] snap-center bg-slate-900/60 border border-slate-800 p-6 rounded-2xl hover:border-slate-700 transition flex flex-col justify-between"
                 >
                   <div className="space-y-3">
                     <h3 className="text-xl font-bold text-red-400 capitalize">
                       {project.name.replace(/-/g, " ")}
                     </h3>
                     <p className="text-slate-400 text-sm line-clamp-3">
-                      {project.description || "No description provided for this repository."}
+                      {project.description || "Tidak ada deskripsi untuk repositori ini."}
                     </p>
                   </div>
+
                   <div className="mt-6 flex items-center justify-between text-xs pt-4 border-t border-slate-800/50">
                     <a
                       href={project.html_url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white rounded-lg font-medium transition"
-                    > Github Repository
+                    >
+                      Repository
                     </a>
                   </div>
                 </div>
               ))
             ) : (
-              <p className="text-slate-500 col-span-2 text-center">Loading repositories or user not found...</p>
+              <p className="text-slate-500 text-center w-full">Gagal memuat repositori...</p>
             )}
           </div>
         </section>
 
-        {/* 4. EXPERIENCES SECTION (Polaroid Card with Hover Image Swap) */}
         <section className="space-y-8 relative">
           <h2 className="text-2xl md:text-3xl font-bold text-center">Experiences</h2>
           
@@ -105,9 +112,7 @@ export default async function Home() {
               <div
                 key={index}
                 className={`group w-72 bg-slate-200 text-slate-900 p-4 rounded-sm shadow-2xl transition duration-300 transform hover:scale-105 ${exp.rotate}`}
-              >
-                {/* Kontainer Gambar Polaroid dengan Efek Slide/Swap */}
-                <div className="relative w-full h-48 overflow-hidden bg-slate-300 mb-4">
+              >                <div className="relative w-full h-48 overflow-hidden bg-slate-300 mb-4">
                   <img
                     src={exp.img1}
                     alt={exp.title}
