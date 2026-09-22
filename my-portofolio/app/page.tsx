@@ -2,6 +2,8 @@ import React from "react";
 import {experiences} from "@/data/data";
 import SkillGlobe from "@/component/skillsGlobe";
 import PolaroidCard from "@/component/polaroidCard";
+import Navbar from "@/component/navbar";
+
 
 type Repository = {
   id: number;
@@ -31,7 +33,9 @@ export default async function Home() {
 
   return (
     <div className="bg-slate-950 text-white min-h-screen flex flex-col font-sans">
-      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-12 space-y-24">
+      <Navbar />
+
+      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-12 pt-28 space-y-24">
         
         <section className="flex flex-col md:flex-row items-center justify-between gap-12 pt-8">
           <div className="flex-1 space-y-4 text-center md:text-left">
@@ -59,7 +63,7 @@ export default async function Home() {
           <div>
             <SkillGlobe />
           </div>
-          <div className="text-center">
+          <div className="text-left">
             <p className="text-slate-300">Here is the tech stack and skill set I’ve implemented across my recent work</p>
           </div>
         </div>
@@ -105,7 +109,6 @@ export default async function Home() {
         <section className="space-y-6 max-w-5xl w-full mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-center">Experiences</h2>
 
-        {/* Pembungkus Scroll Menyamping */}
         <div className="flex gap-8 overflow-x-auto pb-8 pt-4 px-2 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800">
           {experiences.map((exp, index) => (
             <PolaroidCard
