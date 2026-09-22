@@ -1,6 +1,7 @@
 import React from "react";
 import {experiences} from "@/data/data";
 import SkillGlobe from "@/component/skillsGlobe";
+import PolaroidCard from "@/component/polaroidCard";
 
 type Repository = {
   id: number;
@@ -101,41 +102,23 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="space-y-8 relative">
-          <h2 className="text-2xl md:text-3xl font-bold text-center">Experiences</h2>
-          
-          {/* Garis Gantung Dekoratif */}
-          <div className="absolute top-12 left-0 right-0 h-[1px] bg-slate-800 -z-10 hidden md:block"></div>
+        <section className="space-y-6 max-w-5xl w-full mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-center">Experiences</h2>
 
-          <div className="flex flex-wrap justify-center gap-12 pt-4">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className={`group w-72 bg-slate-200 text-slate-900 p-4 rounded-sm shadow-2xl transition duration-300 transform hover:scale-105 ${exp.rotate}`}
-              >                <div className="relative w-full h-48 overflow-hidden bg-slate-300 mb-4">
-                  <img
-                    src={exp.img1}
-                    alt={exp.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:-translate-x-full"
-                  />
-                  <img
-                    src={exp.img2}
-                    alt={`${exp.title} hover`}
-                    className="absolute inset-0 w-full h-full object-cover translate-x-full transition-transform duration-500 group-hover:translate-x-0"
-                  />
-                </div>
-                
-                <div className="space-y-1">
-                  <div className="flex justify-between items-baseline">
-                    <h3 className="font-bold text-lg leading-tight">{exp.title}</h3>
-                    <span className="text-xs font-semibold text-slate-600">{exp.year}</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-snug">{exp.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Pembungkus Scroll Menyamping */}
+        <div className="flex gap-8 overflow-x-auto pb-8 pt-4 px-2 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800">
+          {experiences.map((exp, index) => (
+            <PolaroidCard
+              key={index}
+              title={exp.title}
+              year={exp.year}
+              desc={exp.desc}
+              images={exp.img ? [exp.img] : []} 
+              rotate={exp.rotate}
+            />
+          ))}
+        </div>
+      </section>
 
       </main>
 
