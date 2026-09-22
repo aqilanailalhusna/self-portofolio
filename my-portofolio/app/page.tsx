@@ -59,7 +59,7 @@ export default async function Home() {
 
         <section id="skills" className="space-y-6 scroll-mt-28">
           <h2 className="text-2xl md:text-3xl font-bold">Skills</h2>
-          <div className="my-8 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-32">
+          <div className="my-8 flex flex-col md:flex-row items-center justify-center gap-28 md:gap-48">
             <div>
               <SkillGlobe />
             </div>
@@ -186,7 +186,7 @@ export default async function Home() {
             Instagram
           </a>
         </div>
-        <p className="text-xs text-red-200/60 pt-4">© 2026 A's Portfolio. Built with Next.js & Tailwind CSS.</p>
+        <p className="text-xs text-red-200/60 pt-4">© 2026 A's Portfolio.</p>
       </footer>
     </div>
   );

@@ -21,7 +21,7 @@ export default function Navbar() {
           : "bg-transparent py-6"
       }`}
     >
-      <nav className="max-w-5xl mx-auto px-6 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between">
        <a
           href="#"
           className="text-xl font-bold tracking-tight text-white hover:text-red-500 transition duration-300"
@@ -57,7 +57,7 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              className="px-4 py-2 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 hover:bg-red-600 hover:text-white transition duration-300"
+              className="hover:text-white transition duration-200"
             >
               Contact
             </a>
