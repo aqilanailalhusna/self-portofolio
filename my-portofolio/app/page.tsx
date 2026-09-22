@@ -47,9 +47,9 @@ export default async function Home() {
             </p>
           </div>
           <div className="flex-1 flex justify-center md:justify-end">
-            <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-slate-800 shadow-2xl relative">
+            <div className="w-48 h-48 md:w-75 md:h-75 rounded-full overflow-hidden shadow-2xl relative">
               <img
-                src="/profile.jpg"
+                src="/profile/profile.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
@@ -140,7 +140,7 @@ export default async function Home() {
                 title={exp.title}
                 year={exp.year}
                 desc={exp.desc}
-                images={[exp.img]}
+                images={exp.images}
                 rotate={exp.rotate}
               />
             ))}
