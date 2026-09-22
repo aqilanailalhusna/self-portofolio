@@ -60,7 +60,7 @@ export default async function Home() {
             <SkillGlobe />
           </div>
           <div className="text-center">
-            <p className="text-slate-300">Here are the skills I have applied to my projects</p>
+            <p className="text-slate-300">Here is the tech stack and skill set I’ve implemented across my recent work</p>
           </div>
         </div>
         </section>
