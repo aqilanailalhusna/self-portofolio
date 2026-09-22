@@ -24,7 +24,7 @@ export default function PolaroidCard({ title, year, desc, images, rotate = "" }:
     className={`flex-shrink-0 w-[280px] min-w-[280px] snap-center cursor-pointer group bg-slate-200 text-slate-900 p-4 rounded-sm shadow-2xl transition-all duration-300 transform hover:scale-105 ${rotate}`}
   >
     {/* Container Foto Polaroid (Tinggi foto juga dikunci h-48 atau h-52) */}
-    <div className="relative w-full h-52 overflow-hidden bg-slate-300 mb-4 select-none rounded-sm">
+    <div className="relative w-full h-48 w-48 overflow-hidden bg-slate-300 mb-4 select-none rounded-sm">
       {images.map((img, idx) => (
         <img
           key={idx}

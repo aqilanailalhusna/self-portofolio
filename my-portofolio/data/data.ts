@@ -1,3 +1,13 @@
+    export const projectImages: Record<string, string> = {
+    "KosIn-Predict-Kos-Price": "/projects/kosin.jpg",
+    "rujukin-hospital-recommender": "/projects/aksikita.jpg",
+    "hash-table-library": "/projects/refabriq.jpg",
+    "fashion-ecommerce-website": "/projects/fashion.jpg",
+    "AksiKita": "/projects/aksikita.jpg"
+  };
+
+  export const defaultProjectImage = "/projects/default-project.jpg";  
+
   export const experiences = [
     {
       title: "Lab Assistant / Guide",

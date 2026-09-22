@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
-  // Memberikan efek latar belakang blur saat halaman di-scroll ke bawah
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -23,14 +22,14 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-5xl mx-auto px-6 flex items-center justify-between">
-\        <a
+       <a
           href="#"
           className="text-xl font-bold tracking-tight text-white hover:text-red-500 transition duration-300"
         >
           A<span className="text-red-500">.</span>
         </a>
 
-\        <ul className="flex items-center gap-6 text-sm font-medium text-slate-300">
+    <ul className="flex items-center gap-6 text-sm font-medium text-slate-300">
           <li>
             <a
               href="#skills"
