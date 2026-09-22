@@ -36,8 +36,7 @@ export default async function Home() {
     <div className="bg-slate-950 text-white min-h-screen flex flex-col font-sans">
       <Navbar />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-12 pt-28 space-y-24">
-        
+      <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-12 pt-28 space-y-24">
         <section className="flex flex-col md:flex-row items-center justify-between gap-12 pt-8">
           <div className="flex-1 space-y-4 text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
@@ -72,7 +71,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="projects" className="space-y-10 max-w-4xl w-full mx-auto scroll-mt-28">
+        <section id="projects" className="space-y-10 w-full mx-auto scroll-mt-28">
         <div className="space-y-2">
           <h2 className="text-2xl md:text-3xl font-bold">Projects</h2>
           <p className="text-slate-400 text-sm md:text-base">Things I've Built and Co-Built</p>
@@ -86,13 +85,13 @@ export default async function Home() {
               return (
                 <div key={project.id} className="relative flex flex-col items-center">
                   
-                  <div className="w-full hover: p-5 md:p-6 transition duration-300 flex flex-col md:flex-row gap-6 items-center shadow-lg">
+                  <div className="w-full flex flex-col md:flex-row gap-6 items-center shadow-lg">
                     
-                    <div className="w-full md:w-1/2 h-48 overflow-hidden bg-slate-800 flex-shrink-0 relative group">
+                    <div className="w-full md:w-1/2 h-64 overflow-hidden bg-slate-800 flex-shrink-0 relative group">
                       <img
                         src={projectImage}
                         alt={project.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                        className="w-full h-full object-cover transition duration-500"
                       />
                     </div>
 
@@ -131,7 +130,7 @@ export default async function Home() {
         </div>
       </section>
 
-        <section id="experiences" className="space-y-6 max-w-5xl w-full mx-auto scroll-mt-28">
+        <section id="experiences" className="space-y-6 w-full mx-auto scroll-mt-28">
           <h2 className="text-2xl md:text-3xl font-bold">Experiences</h2>
 
           <div className="flex gap-8 overflow-x-auto pb-8 pt-4 px-2 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800">
