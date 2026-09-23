@@ -23,7 +23,6 @@ export default function PolaroidCard({ title, year, desc, images, rotate = "" }:
     onMouseEnter={handleNextImage}
     className={`flex-shrink-0 w-[280px] min-w-[280px] snap-center cursor-pointer group bg-slate-200 text-slate-900 p-4 rounded-sm shadow-2xl transition-all duration-300 transform hover:scale-105 ${rotate}`}
   >
-    {/* Container Foto Polaroid (Tinggi foto juga dikunci h-48 atau h-52) */}
     <div className="relative w-full h-48 w-48 overflow-hidden bg-slate-300 mb-4 select-none rounded-sm">
       {images.map((img, idx) => (
         <img
@@ -36,7 +35,6 @@ export default function PolaroidCard({ title, year, desc, images, rotate = "" }:
         />
       ))}
 
-      {/* Indikator titik */}
       {images.length > 1 && (
         <div className="absolute bottom-2 right-2 z-20 flex gap-1 bg-black/50 px-2 py-1 rounded-full">
           {images.map((_, idx) => (
@@ -51,13 +49,13 @@ export default function PolaroidCard({ title, year, desc, images, rotate = "" }:
       )}
     </div>
 
-    {/* Detail Teks */}
+
     <div className="space-y-1">
       <div className="flex justify-between items-baseline">
-        <h3 className="font-bold text-lg leading-tight">{title}</h3>
-        <span className="text-xs font-semibold text-slate-600">{year}</span>
+        <h3 className="font-bold text-lg leading-tight font-heading">{title}</h3>
+        <span className="text-xs font-semibold text-slate-600 font-sans">{year}</span>
       </div>
-      <p className="text-xs text-slate-600 leading-snug">{desc}</p>
+      <p className="text-xs text-slate-600 leading-snug font-sans">{desc}</p>
     </div>
   </div>
 );

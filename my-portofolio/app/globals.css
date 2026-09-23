@@ -8,8 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-mystery-quest);
+  --font-sans: var(--font-charis-sil);
+  --font-heading: var(--font-pt-serif-caption);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -39,10 +39,10 @@ export default async function Home() {
       <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-12 pt-28 space-y-24">
         <section className="flex flex-col md:flex-row items-center justify-between gap-12 pt-8">
           <div className="flex-1 space-y-4 text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-bold font-mono tracking-tight">
               Hello, I'm Aqila Nailal Husna
             </h1>
-            <p className="text-slate-300 text-lg leading-relaxed max-w-md">
+            <p className="text-slate-300 text-lg leading-relaxed max-w-md font-sans">
               I am an undergraduate Computer Science student interested in Machine Learning, Data Analytics, and Web Development.
             </p>
           </div>
@@ -58,13 +58,13 @@ export default async function Home() {
         </section>
 
         <section id="skills" className="space-y-6 scroll-mt-28">
-          <h2 className="text-2xl md:text-3xl font-bold">Skills</h2>
+          <h2 className="text-2xl md:text-3xl font-bold font-heading">Skills</h2>
           <div className="my-8 flex flex-col md:flex-row items-center justify-center gap-28 md:gap-48">
             <div>
               <SkillGlobe />
             </div>
             <div className="text-left max-w-xs">
-              <p className="text-slate-300">
+              <p className="text-slate-300 font-sans">
                 Here is the tech stack and skill set I’ve implemented across my recent work.
               </p>
             </div>
@@ -73,8 +73,10 @@ export default async function Home() {
 
         <section id="projects" className="space-y-10 w-full mx-auto scroll-mt-28">
         <div className="space-y-2">
-          <h2 className="text-2xl md:text-3xl font-bold">Projects</h2>
-          <p className="text-slate-400 text-sm md:text-base">Things I've Built and Co-Built</p>
+          <h2 className="text-2xl md:text-3xl font-bold font-heading">Projects</h2>
+          <p className="text-slate-400 text-sm md:text-base font-sans">
+            Things I've Built and Co-Built
+          </p>
         </div>
 
         <div className="flex flex-col gap-8 relative items-left">
@@ -98,12 +100,12 @@ export default async function Home() {
                     <div className="w-full md:w-1/2 flex flex-col justify-between h-full space-y-4 text-left">
                       <div className="space-y-2">
                         <div className="flex items-center justify-between gap-2">
-                          <h3 className="text-xl md:text-2xl font-bold text-white capitalize">
+                          <h3 className="text-xl md:text-2xl font-bold text-white capitalize font-heading">
                             {project.name.replace(/-/g, " ")}
                           </h3>
                         </div>
 
-                        <p className="text-slate-400 text-sm leading-relaxed line-clamp-3">
+                        <p className="text-slate-400 text-sm leading-relaxed line-clamp-3 font-sans">
                           {project.description || "Tidak ada deskripsi untuk repositori ini."}
                         </p>
                       </div>
@@ -115,7 +117,7 @@ export default async function Home() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs md:text-sm font-semibold rounded-lg transition duration-200 shadow-md"
                         >
-                          <span>View Repository</span>
+                          <span className="font-sans">View Repository</span>
                         </a>
                       </div>
                     </div>
@@ -131,7 +133,7 @@ export default async function Home() {
       </section>
 
         <section id="experiences" className="space-y-6 w-full mx-auto scroll-mt-28">
-          <h2 className="text-2xl md:text-3xl font-bold">Experiences</h2>
+          <h2 className="text-2xl md:text-3xl font-bold font-heading">Experiences</h2>
 
           <div className="flex gap-8 overflow-x-auto pb-8 pt-4 px-2 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-800">
             {experiences.map((exp, index) => (
@@ -150,8 +152,8 @@ export default async function Home() {
       </main>
 
       <footer id="contact" className="w-full bg-red-900/80 border-t border-red-800 py-12 px-6 mt-12 text-center space-y-6 scroll-mt-28">
-        <h2 className="text-3xl font-bold tracking-tight text-white">Let's Connect</h2>
-        <div className="flex justify-center items-center gap-6 text-sm font-medium">
+        <h2 className="text-3xl font-bold tracking-tight text-white font-heading">Let's Connect</h2>
+        <div className="flex justify-center items-center gap-6 text-sm font-sans font-medium">
           <a
             href="https://linkedin.com"
             target="_blank"
