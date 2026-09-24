@@ -52,10 +52,16 @@ export default function PolaroidCard({ title, year, desc, images, rotate = "" }:
 
     <div className="space-y-1">
       <div className="flex justify-between items-baseline">
-        <h3 className="font-bold text-lg leading-tight font-heading">{title}</h3>
-        <span className="text-xs font-semibold text-slate-600 font-sans">{year}</span>
+        <h3 className="font-bold text-lg leading-tight font-heading" style={{ color: 'var(--color-bg)' }}>
+          {title}
+        </h3>
+        <span className="text-xs font-semibold text-slate-600 font-sans" style={{ color: 'var(--color-footer-bg)' }}>
+          {year}
+        </span>
       </div>
-      <p className="text-xs text-slate-600 leading-snug font-sans">{desc}</p>
+      <p className="text-xs text-slate-600 leading-snug font-sans" style={{ color: 'var(--color-footer-bg)' }}>
+        {desc}
+      </p>
     </div>
   </div>
 );

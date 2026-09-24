@@ -104,12 +104,12 @@ export default async function Home() {
                     <div className="w-full md:w-1/2 flex flex-col justify-between h-full space-y-4 text-left">
                       <div className="space-y-2">
                         <div className="flex items-center justify-between gap-2">
-                          <h3 className="text-xl md:text-2xl font-bold text-white capitalize font-heading">
+                          <h3 className="text-xl md:text-2xl font-bold text-white capitalize font-heading color-slate-200" style={{ color: 'var(--color-heading)' }}>
                             {project.name.replace(/-/g, " ")}
                           </h3>
                         </div>
 
-                        <p className="text-slate-400 text-sm leading-relaxed line-clamp-3 font-sans">
+                        <p className="text-slate-400 text-sm leading-relaxed line-clamp-3 font-sans color-slate-200" style={{ color: 'var(--color-text)' }}>
                           {project.description || "Tidak ada deskripsi untuk repositori ini."}
                         </p>
                       </div>
@@ -119,9 +119,11 @@ export default async function Home() {
                           href={project.html_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-xs md:text-sm font-semibold rounded-lg transition duration-200 shadow-md"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-footer-bg text-white text-xs md:text-sm font-semibold rounded-lg transition duration-200 shadow-md"
                         >
-                          <span className="font-sans">View Repository</span>
+                          <span className="font-sans color-slate-200" style={{ color: 'var(--color-text)' }}>
+                            View Repository
+                          </span>
                         </a>
                       </div>
                     </div>
@@ -166,7 +168,7 @@ export default async function Home() {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline text-slate-200 hover:text-white"
+            className="hover:underline text-text hover:text-white"
           >
             LinkedIn
           </a>
@@ -175,14 +177,14 @@ export default async function Home() {
             href="https://github.com/aqilanailalhusna"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline text-slate-200 hover:text-white"
+            className="hover:underline text-text hover:text-white"
           >
             GitHub
           </a>
           <span>•</span>
           <a
             href="mailto:example@gmail.com"
-            className="hover:underline text-slate-200 hover:text-white"
+            className="hover:underline text-text hover:text-white"
           >
             Email
           </a>
@@ -191,7 +193,7 @@ export default async function Home() {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline text-slate-200 hover:text-white"
+            className="hover:underline text-text hover:text-white"
           >
             Instagram
           </a>
