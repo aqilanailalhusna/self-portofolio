@@ -17,8 +17,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-slate-950/80 backdrop-blur-md border-b border-slate-800 py-4 shadow-lg"
-          : "bg-transparent py-6"
+          ? "bg-footer-bg py-4 shadow-lg"
+          : "bg-transparent py-6 color-slate-200"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between">
@@ -29,7 +29,7 @@ export default function Navbar() {
           A<span className="text-red-500">.</span>
         </a>
 
-    <ul className="flex items-center gap-6 text-sm font-medium text-slate-300">
+    <ul className="flex items-center gap-6 text-md font-medium color-slate-200" style={{ color: 'var(--color-text)' }}>
           <li>
             <a
               href="#skills"
