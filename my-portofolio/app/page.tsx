@@ -183,14 +183,14 @@ export default async function Home() {
           </a>
           <span>•</span>
           <a
-            href="mailto:example@gmail.com"
+            href="mailto:aqilanailal.husna@gmail.com"
             className="hover:underline text-text hover:text-white"
           >
             Email
           </a>
           <span>•</span>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/nelalala._?stkn=MXZ0c3N4ZjBnbjR3Nw%3D%3D&utm_source=qr"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline text-text hover:text-white"
@@ -198,7 +198,7 @@ export default async function Home() {
             Instagram
           </a>
         </div>
-        <p className="text-xs text-red-200/60 pt-4">© 2026 A's Portfolio.</p>
+        <p className="text-xs text-red-200/60 pt-4">© 2026 Aqila's Portfolio.</p>
       </footer>
     </div>
   );

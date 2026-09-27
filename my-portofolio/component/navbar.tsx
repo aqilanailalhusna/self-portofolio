@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import React, { useState, useEffect } from "react";
 
@@ -24,9 +25,15 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between">
        <a
           href="#"
-          className="text-xl font-bold tracking-tight text-white hover:text-red-500 transition duration-300"
+          className="text-xl font-bold tracking-tight text-white hover:border-b-2 hover:border-white transition duration-300"
         >
-          A<span className="text-red-500">.</span>
+            <Image
+        src="/logo.png"
+        alt="Logo"
+        width={40} 
+        height={40}
+        className="h-8 w-auto object-contain"
+        />
         </a>
 
     <ul className="flex items-center gap-6 text-md font-medium color-slate-200" style={{ color: 'var(--color-text)' }}>
