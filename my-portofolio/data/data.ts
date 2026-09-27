@@ -1,9 +1,10 @@
     export const projectImages: Record<string, string> = {
     "KosIn-Predict-Kos-Price": "/projects/KosIn.png",
     "rujukin-hospital-recommender": "/projects/Rujukin.png",
-    "hash-table-library": "/projects/HashTable.jpeg",
+    "hash-table-library": "/projects/hashTable.png",
     "fashion-ecommerce-website": "/projects/ChristianWijaya.png",
-    "AksiKita": "/projects/AksiKita.png"
+    "AksiKita": "/projects/AksiKita.png",
+    "education-career": "/projects/eduCareer.png"
   };
 
   export const defaultProjectImage = "/projects/default-project.png";
