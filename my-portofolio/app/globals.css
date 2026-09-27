@@ -4,19 +4,12 @@
   --font-mono: var(--font-mystery-quest);
   --font-sans: var(--font-charis-sil);
   --font-heading: var(--font-pt-serif-caption);
-  --color-bg : #621e3e;
-  --color-heading : #c6c954;
-  --color-text : #e6d8d7;
-  --color-accent : #ecb5ca;
-  --color-footer-bg : #880a45;
+  --color-bg : #34495e;
+  --color-heading : #f39c12;
+  --color-text : #f7f9f9;
+  --color-accent : #16a085;
+  --color-footer-bg : #2c3e50;
 }
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 body {
   background: var(--color-bg);
