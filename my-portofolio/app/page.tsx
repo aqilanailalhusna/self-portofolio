@@ -110,7 +110,7 @@ export default async function Home() {
                         </div>
 
                         <p className="text-slate-400 text-sm leading-relaxed line-clamp-3 font-sans color-slate-200" style={{ color: 'var(--color-text)' }}>
-                          {project.description || "Tidak ada deskripsi untuk repositori ini."}
+                          {project.description || "No description yet."}
                         </p>
                       </div>
 
@@ -165,7 +165,7 @@ export default async function Home() {
         </h2>
         <div className="flex justify-center items-center gap-6 text-sm font-sans font-medium colorte-slate-200" style={{ color: 'var(--color-text)' }}>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/aqila-nailal-husna-a18495335"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline text-text hover:text-white"
@@ -198,7 +198,7 @@ export default async function Home() {
             Instagram
           </a>
         </div>
-        <p className="text-xs text-red-200/60 pt-4">© 2026 Aqila's Portfolio.</p>
+        <p className="text-xs pt-4" style={{ color: 'var(--color-accent)' }}>© 2026 Aqila's Portfolio.</p>
       </footer>
     </div>
   );
