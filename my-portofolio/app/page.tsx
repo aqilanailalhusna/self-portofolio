@@ -50,7 +50,7 @@ export default async function Home() {
           <div className="flex-1 flex justify-center md:justify-end">
             <div className="w-48 h-48 md:w-75 md:h-75 rounded-full overflow-hidden shadow-2xl relative border-3" style={{ borderColor: 'var(--color-accent)' }}>
               <img
-                src="/profile/profile.jpg"
+                src="/profile/selfPortfolio.jpeg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
