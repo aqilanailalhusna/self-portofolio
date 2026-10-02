@@ -16,14 +16,15 @@ type Repository = {
 
 async function getGithubProjects(username: string): Promise<Repository[]> {
   try {
-    const res = await fetch(`https://api.github.com/users/aqilanailalhusna/repos?sort=updated&per_page=30`, {
+    const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=30`, {
       next: { revalidate: 3600 },
     });
     if (!res.ok) return [];
     
     const repos: Repository[] = await res.json();
-    
-    return repos;
+    return repos.filter(
+      (repo) => repo.name.toLowerCase() !== username.toLowerCase()
+    );
   } catch {
     return [];
   }

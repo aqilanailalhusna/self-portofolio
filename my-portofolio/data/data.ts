@@ -4,7 +4,8 @@
     "hash-table-library": "/projects/hashTable.png",
     "fashion-ecommerce-website": "/projects/ChristianWijaya.png",
     "AksiKita": "/projects/AksiKita.png",
-    "education-career": "/projects/eduCareer.png"
+    "education-career": "/projects/eduCareer.png",
+    "self-portofolio": "/projects/portfolio.png",
   };
 
   export const defaultProjectImage = "/projects/default-project.png";
