@@ -44,7 +44,7 @@ export default async function Home() {
               Hello, I'm Aqila Nailal Husna
             </h1>
             <p className="text-slate-300 text-lg leading-relaxed max-w-md font-sans" style={{ color: 'var(--color-text)' }}>
-              I am an undergraduate Computer Science student interested in Machine Learning, Data Analytics, and Web Development.
+             I am an undergraduate Computer Science student aspiring to specialize in Machine Learning and Data Science. I enjoy transforming raw data into actionable insights and building machine learning solutions. Recently, I have built several hands-on Machine Learning projects, covering everything from data cleaning and exploratory data analysis to model deployment and benchmarking. Lets connect and explore the world of data together! 
             </p>
           </div>
           <div className="flex-1 flex justify-center md:justify-end">
